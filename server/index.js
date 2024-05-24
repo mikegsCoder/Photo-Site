@@ -3,6 +3,7 @@ require("dotenv").config();
 const dbConnector = require("./config/db");
 const apiRouter = require("./router");
 const cors = require("cors");
+const { errorHandler } = require('./utils');
 
 dbConnector()
 	.then(() => {
@@ -18,6 +19,7 @@ dbConnector()
 		);
 
 		app.use("/api", apiRouter);
+    app.use(errorHandler);
 
 		app.listen(
 			config.port,
