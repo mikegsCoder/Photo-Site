@@ -1,5 +1,34 @@
 const { userModel, postModel } = require("../models");
 
+function newPost({
+	title,
+	keyword,
+	location,
+	date,
+	imageUrl,
+	description,
+	author,
+}) {
+	return postModel
+		.create({
+			title,
+			keyword,
+			location,
+			date,
+			imageUrl,
+			description,
+			author,
+		})
+		.then((post) => {
+			return Promise.all([
+				userModel.updateOne(
+					{ _id: author },
+					{ $push: { posts: post._id } }
+				),
+			]);
+		});
+}
+
 function getAllPosts(req, res, next) {
 	const limit = Number(req.query.limit) || 0;
 
@@ -39,5 +68,5 @@ function getProfilePosts(req, res, next) {
 
 module.exports = {
 	getAllPosts,
-  getProfilePosts
+	getProfilePosts,
 };
