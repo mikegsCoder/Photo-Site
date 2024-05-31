@@ -66,7 +66,27 @@ function getProfilePosts(req, res, next) {
 		.catch(next);
 }
 
+function createPost(req, res, next) {
+	const postData = {
+		title: req.body.title.trim(),
+		keyword: req.body.keyword.trim(),
+		location: req.body.location.trim(),
+		date: req.body.date.trim(),
+		imageUrl: req.body.imageUrl.trim(),
+		description: req.body.description.trim(),
+		author: req.user._id,
+	};
+
+	newPost(postData)
+		.then((post) => {
+			res.status(200).json(post);
+		})
+		.catch(next);
+}
+
 module.exports = {
 	getAllPosts,
 	getProfilePosts,
+  newPost,
+  createPost
 };
