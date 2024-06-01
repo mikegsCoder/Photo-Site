@@ -7,5 +7,6 @@ router.get('/', postController.getAllPosts);
 router.get('/user/', auth(), postController.getProfilePosts);
 
 router.post('/', auth(), postController.createPost);
+router.get('/:id', postController.getPost);
 
 module.exports = router
