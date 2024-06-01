@@ -84,9 +84,29 @@ function createPost(req, res, next) {
 		.catch(next);
 }
 
+function getPost(req, res, next) {
+	const id = req.params.id;
+
+	postModel
+		.findById(id)
+		.populate("author")
+		.populate("votes")
+		.lean()
+		.then((post) => {
+			delete post.author["password"];
+			post.votes.map((v) => {
+				delete v["password"];
+				delete v["posts"];
+			});
+			res.json(post);
+		})
+		.catch(next);
+}
+
 module.exports = {
 	getAllPosts,
 	getProfilePosts,
-  newPost,
-  createPost
+	newPost,
+	createPost,
+  getPost
 };
