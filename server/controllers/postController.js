@@ -103,10 +103,53 @@ function getPost(req, res, next) {
 		.catch(next);
 }
 
+function updatePost(req, res, next) {
+	const postData = {
+		id: req.params.id,
+		author: req.user.id,
+		title: req.body.title.trim(),
+		keyword: req.body.keyword.trim(),
+		location: req.body.location.trim(),
+		date: req.body.date.trim(),
+		imageUrl: req.body.imageUrl.trim(),
+		description: req.body.description.trim(),
+		author: req.user._id,
+	};
+
+	// if the userId is not the same as this one of the post, the post will not be updated
+	postModel
+		.findOneAndUpdate(
+			{
+				_id: postData.id,
+				author: postData.author,
+			},
+			{
+				title: postData.title,
+				keyword: postData.keyword,
+				location: postData.location,
+				date: postData.date,
+				imageUrl: postData.imageUrl,
+				description: postData.description,
+			},
+			{ new: true }
+		)
+		.then((updatedPost) => {
+			if (updatedPost) {
+				res.status(200).json(updatedPost);
+			} else {
+				res.status(401).json({
+					message: `You can't edit post you haven't created.`,
+				});
+			}
+		})
+		.catch(next);
+}
+
 module.exports = {
 	getAllPosts,
 	getProfilePosts,
 	newPost,
 	createPost,
-  getPost
+	getPost,
+  updatePost
 };
