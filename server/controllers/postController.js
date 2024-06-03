@@ -145,11 +145,32 @@ function updatePost(req, res, next) {
 		.catch(next);
 }
 
+function deletePost(req, res, next) {
+	const id = req.params.id;
+	const { _id: author } = req.user;
+
+	Promise.all([
+		postModel.findOneAndDelete({ _id: id, author }),
+		userModel.findOneAndUpdate({ _id: author }, { $pull: { posts: id } }),
+	])
+		.then((deletedOne) => {
+			if (deletedOne) {
+				res.status(200).json(deletedOne);
+			} else {
+				res.status(401).json({
+					message: `You can't delete post you haven't created.`,
+				});
+			}
+		})
+		.catch(next);
+}
+
 module.exports = {
 	getAllPosts,
 	getProfilePosts,
 	newPost,
 	createPost,
 	getPost,
-  updatePost
+	updatePost,
+  deletePost
 };
