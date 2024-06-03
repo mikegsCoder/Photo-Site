@@ -9,5 +9,6 @@ router.get('/user/', auth(), postController.getProfilePosts);
 router.post('/', auth(), postController.createPost);
 router.get('/:id', postController.getPost);
 router.put('/:id', auth(), postController.updatePost);
+router.delete('/:id', auth(), postController.deletePost);
 
 module.exports = router
