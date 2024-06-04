@@ -11,4 +11,6 @@ router.get('/:id', postController.getPost);
 router.put('/:id', auth(), postController.updatePost);
 router.delete('/:id', auth(), postController.deletePost);
 
+router.post('/votep/:id', auth(), postController.votePositive);
+
 module.exports = router
