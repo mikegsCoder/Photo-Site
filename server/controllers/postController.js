@@ -165,6 +165,27 @@ function deletePost(req, res, next) {
 		.catch(next);
 }
 
+function votePositive(req, res, next) {
+	const id = req.params.id;
+	const userId = req.user._id;
+
+	console.log("Vote positive by user: " + userId);
+
+	postModel
+		.updateOne(
+			{ _id: id },
+			{
+				$addToSet: { votes: userId },
+				$inc: { rating: 1 },
+			},
+			{ new: true }
+		)
+		.then(() => {
+			res.status(200).json({ message: "Voted successful!" });
+		})
+		.catch(next);
+}
+
 module.exports = {
 	getAllPosts,
 	getProfilePosts,
@@ -172,5 +193,6 @@ module.exports = {
 	createPost,
 	getPost,
 	updatePost,
-  deletePost
+	deletePost,
+  votePositive
 };
