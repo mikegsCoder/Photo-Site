@@ -186,6 +186,25 @@ function votePositive(req, res, next) {
 		.catch(next);
 }
 
+function voteNegative(req, res, next) {
+	const id = req.params.id;
+	const userId = req.user._id;
+
+	console.log("Vote negative by user: " + userId);
+
+	postModel
+		.updateOne(
+			{ _id: id },
+			{
+				$addToSet: { votes: userId },
+				$inc: { rating: -1 },
+			},
+			{ new: true }
+		)
+		.then(() => res.status(200).json({ message: "Voted successful!" }))
+		.catch(next);
+}
+
 module.exports = {
 	getAllPosts,
 	getProfilePosts,
@@ -194,5 +213,6 @@ module.exports = {
 	getPost,
 	updatePost,
 	deletePost,
-  votePositive
+	votePositive,
+  voteNegative
 };
