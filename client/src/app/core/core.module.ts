@@ -4,11 +4,12 @@ import { RouterModule } from '@angular/router';
 
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthService } from './auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [],
   imports: [CommonModule, RouterModule],
-  providers: [appInterceptorProvider, AuthService],
+  providers: [appInterceptorProvider, AuthService, AuthGuard],
   exports: [],
 })
 export class CoreModule {}
