@@ -5,10 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 
+import { HeaderComponent } from './core/header/header.component';
+
 @NgModule({
   declarations: [AppComponent],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [
+    AppComponent, 
+    HeaderComponent
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
