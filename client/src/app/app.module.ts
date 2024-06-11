@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 
 import { HeaderComponent } from './core/header/header.component';
+import { FooterComponent } from './core/footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   providers: [],
   bootstrap: [
     AppComponent, 
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
