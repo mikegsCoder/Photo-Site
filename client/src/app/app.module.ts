@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 import { CoreModule } from './core/core.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
@@ -24,6 +25,7 @@ import { FooterComponent } from './core/footer/footer.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    AppRoutingModule,
     CoreModule,
   ],
 })
