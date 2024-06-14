@@ -10,6 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     AppRoutingModule,
     CoreModule,
+    SharedModule
   ],
 })
 export class AppModule {}
