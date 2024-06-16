@@ -20,3 +20,10 @@ export function rePasswordValidatorFactory(targetControl: AbstractControl): Vali
     return areTheSame ? null : { rePasswordValidator: true };
   };
 }
+
+export function imageValidator(control: AbstractControl): ValidationErrors | null {
+  const value = (control.value as string);
+  if (!value) { return null; }
+  const isValidImage = /^https?/.test(value);
+  return isValidImage ? null : { imageValidator: true };
+}
