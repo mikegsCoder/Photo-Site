@@ -1,0 +1,222 @@
+<section id="register-page">
+  <div class="signupSection">
+    <div class="info">
+      <h2>
+        To discover and share knowledge about the environment in order to
+        preserve and enrich life.
+      </h2>
+    </div>
+    <form class="signupForm" [formGroup]="form" (ngSubmit)="submitHandler()">
+      <fieldset>
+        <h2>Register</h2>
+        <ul class="noBullet">
+          <!-- first name -->
+          <li>
+            <label for="firstName">First Name:</label>
+            <input
+              [class.input-error]="
+                form.get('firstName').touched && !!form.get('firstName').errors
+              "
+              type="text"
+              class="inputFields"
+              id="first-name"
+              name="firstName"
+              placeholder="Peter"
+              formControlName="firstName"
+            />
+            <p
+              *ngIf="
+                form.get('firstName').touched &&
+                form.get('firstName').errors != null &&
+                form.get('firstName').errors['required']
+              "
+              class="error"
+            >
+              First name is required!
+            </p>
+            <p
+              *ngIf="
+                form.get('firstName').touched &&
+                form.get('firstName').errors != null &&
+                form.get('firstName').errors['nameValidator']
+              "
+              class="error"
+            >
+              First name must contain only English letters!
+            </p>
+            <p
+              *ngIf="
+                form.get('firstName').touched &&
+                form.get('firstName').errors != null &&
+                form.get('firstName').errors['minlength']
+              "
+              class="error"
+            >
+              First name must be at least 5 characters long!
+            </p>
+          </li>
+          <!-- last name -->
+          <li>
+            <label for="lastName">Last Name:</label>
+            <input
+              [class.input-error]="
+                form.get('lastName').touched && !!form.get('lastName').errors
+              "
+              type="text"
+              class="inputFields"
+              id="last-name"
+              name="lastName"
+              placeholder="Petrov"
+              formControlName="lastName"
+            />
+            <p
+              *ngIf="
+                form.get('lastName').touched &&
+                form.get('lastName').errors != null &&
+                form.get('lastName').errors['required']
+              "
+              class="error"
+            >
+              Last name is required!
+            </p>
+            <p
+              *ngIf="
+                form.get('lastName').touched &&
+                form.get('lastName').errors != null &&
+                form.get('lastName').errors['nameValidator']
+              "
+              class="error"
+            >
+              Last name must contain only English letters!
+            </p>
+            <p
+              *ngIf="
+                form.get('lastName').touched &&
+                form.get('lastName').errors != null &&
+                form.get('lastName').errors['minlength']
+              "
+              class="error"
+            >
+              Last name must be at least 5 characters long!
+            </p>
+          </li>
+          <!-- email -->
+          <li>
+            <label for="email">Email:</label>
+            <input
+              [class.input-error]="
+                form.get('email').touched && !!form.get('email').errors
+              "
+              type="email"
+              class="inputFields"
+              id="email"
+              name="email"
+              formControlName="email"
+              placeholder="alex@gmail.com"
+            />
+            <p
+              *ngIf="
+                form.get('email').touched &&
+                form.get('email').errors != null &&
+                form.get('email').errors['required']
+              "
+              class="error"
+            >
+              Email is required!
+            </p>
+            <p
+              *ngIf="
+                form.get('email').touched &&
+                form.get('email').errors != null &&
+                form.get('email').errors['emailValidator']
+              "
+              class="error"
+            >
+              Email is not valid!
+            </p>
+          </li>
+          <!-- password -->
+          <li>
+            <label for="password">Password:</label>
+            <input
+              [class.input-error]="
+                form.get('password').touched && !!form.get('password').errors
+              "
+              type="password"
+              class="inputFields"
+              id="password"
+              name="password"
+              formControlName="password"
+              placeholder="******"
+            />
+            <p
+              *ngIf="
+                form.get('password').touched &&
+                form.get('password').errors != null &&
+                form.get('password').errors['required']
+              "
+              class="error"
+            >
+              Password is required!
+            </p>
+            <p
+              *ngIf="
+                form.get('password').touched &&
+                form.get('password').errors != null &&
+                form.get('password').errors['minlength']
+              "
+              class="error"
+            >
+              Password must be at least 4 characters long!
+            </p>
+          </li>
+          <!-- repassword -->
+          <li>
+            <label for="repeat-password">Repeat-Password:</label>
+            <input
+              [class.input-error]="
+                form.get('rePassword').touched &&
+                !!form.get('rePassword').errors
+              "
+              type="password"
+              class="inputFields"
+              id="repeat-password"
+              name="rePassword"
+              formControlName="rePassword"
+              placeholder="******"
+            />
+            <p
+              *ngIf="
+                form.get('rePassword').touched &&
+                form.get('rePassword').errors != null &&
+                form.get('rePassword').errors['required']
+              "
+              class="error"
+            >
+              Repeat Password is required!
+            </p>
+            <p
+              *ngIf="
+                form.get('rePassword').touched &&
+                form.get('rePassword').errors != null &&
+                form.get('rePassword').errors['rePasswordValidator']
+              "
+              class="error"
+            >
+              Passwords don't match!
+            </p>
+          </li>
+          <li id="center-btn">
+            <button [disabled]="isLoading || form.invalid" id="join-btn">
+              Register
+            </button>
+          </li>
+          <li id="login-link">
+            Have an account?
+            <a routerLink="/user/login">Log In</a>
+          </li>
+        </ul>
+      </fieldset>
+    </form>
+  </div>
+</section>
