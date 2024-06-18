@@ -1,0 +1,94 @@
+<section id="login-page">
+  <div class="loginSection">
+    <div class="info">
+      <h2>Welcome, again!</h2>
+      <p>View new posts.</p>
+    </div>
+    <form #f="ngForm" (ngSubmit)="submitFormHandler(f.value)" class="loginForm">
+      <h2>Login</h2>
+      <ul class="noBullet">
+        <li>
+          <label for="email">Email:</label>
+          <input
+            #userEmail="ngModel"
+            [class.input-error]="userEmail.touched && !!userEmail.errors"
+            type="text"
+            class="inputFields"
+            id="email"
+            name="email"
+            placeholder="alex@gmail.com"
+            ngModel
+            appSubmitOnValid
+            (ngModelChangeIfValid)="changeHandler($event)"
+            required
+            appEmailValidator
+          />
+          <p
+            *ngIf="
+              userEmail.touched &&
+              userEmail.errors != null &&
+              userEmail.errors['required']
+            "
+            class="error"
+          >
+            Email is required!
+          </p>
+          <p
+            *ngIf="
+              userEmail.touched &&
+              userEmail.errors != null &&
+              userEmail.errors['emailValidator']
+            "
+            class="error"
+          >
+            Email is not valid!
+          </p>
+        </li>
+        <li>
+          <label for="password">Password:</label>
+          <input
+            #userPassword="ngModel"
+            [class.input-error]="userPassword.touched && !!userPassword.errors"
+            type="password"
+            class="inputFields"
+            id="password"
+            name="password"
+            placeholder="*******"
+            ngModel
+            required
+            minlength="4"
+          />
+          <p
+            *ngIf="
+              userPassword.touched &&
+              userPassword.errors != null &&
+              userPassword.errors['required']
+            "
+            class="error"
+          >
+            Password is required!
+          </p>
+          <p
+            *ngIf="
+              userPassword.touched &&
+              userPassword.errors != null &&
+              userPassword.errors['minlength']
+            "
+            class="error"
+          >
+            Password must be at least 4 characters!
+          </p>
+        </li>
+        <li id="center-btn">
+          <button [disabled]="isLoading || f.invalid" id="login-btn">
+            Login
+          </button>
+        </li>
+        <li id="register-link">
+          Don't have an account?
+          <a routerLink="/user/register">Register</a>
+        </li>
+      </ul>
+    </form>
+  </div>
+</section>
