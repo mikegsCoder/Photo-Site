@@ -11,6 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from "./shared/shared.module";
+import { PostModule } from './post/post.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SharedModule } from "./shared/shared.module";
     HttpClientModule,
     AppRoutingModule,
     CoreModule,
+    PostModule.forRoot(),
     SharedModule
   ],
 })
