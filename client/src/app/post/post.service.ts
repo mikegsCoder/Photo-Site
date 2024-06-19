@@ -9,6 +9,10 @@ export class PostService {
 
   constructor(private http: HttpClient) {}
 
+  loadProfilePosts(): Observable<IPost[]> {
+    return this.http.get<IPost[]>(`/posts/user`);
+  }
+
   loadAllPosts(): Observable<IPost[]> {
     return this.http.get<IPost[]>(`/posts`);
   }
