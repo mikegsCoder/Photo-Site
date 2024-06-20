@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PostService } from './post.service';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PostRoutingModule } from './post-routing.module';
 import { CatalogComponent } from './catalog/catalog.component';
 
 @NgModule({
@@ -12,6 +13,7 @@ import { CatalogComponent } from './catalog/catalog.component';
   imports: [
     CommonModule, 
     SharedModule, 
+    PostRoutingModule,
     FormsModule, 
     ReactiveFormsModule
   ],
