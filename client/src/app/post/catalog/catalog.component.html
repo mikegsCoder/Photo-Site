@@ -1,0 +1,32 @@
+<ng-template #havePosts>
+  <div *ngFor="let post of posts" class="flip flip-vertical">
+    <div class="front">
+      <img src="{{ post.imageUrl }}" alt="post-image" />
+      <h1 class="text-shadow">Keyword: {{ post.keyword }}</h1>
+    </div>
+    <div class="back">
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.description }}</p>
+      <a [routerLink]="['/post/detail', post._id]" class="details">Details</a>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #noPosts>
+  <div class="no-posts">
+    <div class="no-posts-img">
+      <img src="../../../assets/img/common/photo3.jpg" alt="image_nature_3" />
+    </div>
+    <p class="no-offer">There are no posts yet...</p>
+  </div>
+</ng-template>
+
+<section id="catalog">
+  <h1>All Posts</h1>
+  <app-loader *ngIf="loading"></app-loader>
+  <div *ngIf="!loading" class="band">
+    <ng-container
+      *ngTemplateOutlet="posts.length > 0 ? havePosts : noPosts"
+    ></ng-container>
+  </div>
+</section>
