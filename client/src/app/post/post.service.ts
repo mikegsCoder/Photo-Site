@@ -16,4 +16,8 @@ export class PostService {
   loadAllPosts(): Observable<IPost[]> {
     return this.http.get<IPost[]>(`/posts`);
   }
+
+  createPost(data): Observable<IPost[]> {
+    return this.http.post<IPost[]>(`/posts`, data);
+  }
 }
