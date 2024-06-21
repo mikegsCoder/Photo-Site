@@ -5,10 +5,12 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostRoutingModule } from './post-routing.module';
 import { CatalogComponent } from './catalog/catalog.component';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
   declarations: [
-    CatalogComponent
+    CatalogComponent,
+    CreateComponent
   ],
   imports: [
     CommonModule, 
