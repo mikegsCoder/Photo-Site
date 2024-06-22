@@ -1,0 +1,43 @@
+<ng-template #havePosts>
+  <div *ngFor="let post of posts" class="my-card">
+    <div class="card-header">
+      <img
+        (click)="redirectHandler(post._id)"
+        src="{{ post.imageUrl }}"
+        alt="{{ post.title }}"
+      />
+    </div>
+    <div class="card-body">
+      <span class="tag tag-teal">Keyword: {{ post.keyword }}</span>
+      <h4>Title: {{ post.title }}</h4>
+      <div class="user">
+        <img src="../.././../assets/img/common/vote-icon.jpg" alt="vote" />
+        <div class="user-info">
+          <h5>
+            Author: {{ post.author.firstName }} {{ post.author.lastName }}
+          </h5>
+          <small>Rating of votes: {{ post.rating }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #noPosts>
+  <div class="no-posts">
+    <div class="no-posts-img">
+      <img src="../../../assets/img/common/photo3.jpg" alt="image_nature_3" />
+    </div>
+    <p class="no-offer">There are no posts yet...</p>
+  </div>
+</ng-template>
+
+<section id="my-posts">
+  <h1>My Posts</h1>
+  <app-loader *ngIf="loading"></app-loader>
+  <div *ngIf="!loading" class="my-container">
+    <ng-container
+      *ngTemplateOutlet="posts.length > 0 ? havePosts : noPosts"
+    ></ng-container>
+  </div>
+</section>

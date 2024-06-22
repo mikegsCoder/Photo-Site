@@ -6,11 +6,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostRoutingModule } from './post-routing.module';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CreateComponent } from './create/create.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     CatalogComponent,
-    CreateComponent
+      ProfileComponent,
+      CreateComponent
   ],
   imports: [
     CommonModule, 
