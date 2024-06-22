@@ -1,5 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogComponent } from './catalog/catalog.component';
+import { ProfileComponent } from './profile/profile.component';
 import { CreateComponent } from './create/create.component';
 
 const routes: Routes = [
@@ -10,6 +11,14 @@ const routes: Routes = [
       // isLogged: true,
       title: 'ALL POSTS',
     },
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    data: {
+        isLogged: true,
+        title: 'PROFILE POSTS'
+    }
   },
   {
     path: 'create',
