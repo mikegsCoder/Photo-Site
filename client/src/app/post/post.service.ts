@@ -28,4 +28,8 @@ export class PostService {
   deletePost(id): Observable<IPost> {
     return this.http.delete<IPost>(`/posts/${id}`);
   }
+
+  updatePost(id, data): Observable<IPost[]> {
+    return this.http.put<IPost[]>(`/posts/${id}`, data);
+  }
 }
