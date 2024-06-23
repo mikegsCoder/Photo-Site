@@ -24,4 +24,8 @@ export class PostService {
   loadPost(id): Observable<IPost> {
     return this.http.get<IPost>(`/posts/${id}`);
   }
+
+  deletePost(id): Observable<IPost> {
+    return this.http.delete<IPost>(`/posts/${id}`);
+  }
 }
