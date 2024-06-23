@@ -36,4 +36,8 @@ export class PostService {
   votePositive(id): Observable<IPost> {
     return this.http.post<IPost>(`/posts/votep/${id}`, {});
   }
+
+  voteNegative(id): Observable<IPost> {
+    return this.http.post<IPost>(`/posts/voten/${id}`, {});
+  }
 }
