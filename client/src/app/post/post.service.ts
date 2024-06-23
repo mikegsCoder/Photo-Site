@@ -32,4 +32,8 @@ export class PostService {
   updatePost(id, data): Observable<IPost[]> {
     return this.http.put<IPost[]>(`/posts/${id}`, data);
   }
+
+  votePositive(id): Observable<IPost> {
+    return this.http.post<IPost>(`/posts/votep/${id}`, {});
+  }
 }
