@@ -7,12 +7,14 @@ import { PostRoutingModule } from './post-routing.module';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CreateComponent } from './create/create.component';
 import { ProfileComponent } from './profile/profile.component';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
     CatalogComponent,
-      ProfileComponent,
-      CreateComponent
+    ProfileComponent,
+    CreateComponent,
+    DetailComponent
   ],
   imports: [
     CommonModule, 

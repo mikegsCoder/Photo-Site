@@ -1,0 +1,82 @@
+<app-loader *ngIf="loading"></app-loader>
+<section id="details-page">
+  <div class="main_card">
+    <div class="card_left">
+      <div class="card_datails">
+        <h1>Title: {{ post.title }}</h1>
+        <h3>
+          Created by an author: {{ post.author.firstName }}
+          {{ post.author.lastName }}
+        </h3>
+        <div class="card_animal">
+          <p class="card-keyword">Keyword: {{ post.keyword }}</p>
+          <p class="card-location">Location: {{ post.location }}</p>
+          <p class="card-date">Date: {{ post.date }}</p>
+        </div>
+        <p class="disc">Description: {{ post.description | shortenText }}</p>
+        <div *ngIf="currentUser$ | async" class="social-btn">
+          <a
+            *ngIf="(currentUser$ | async)._id == post.author._id"
+            [routerLink]="['/post/edit', post._id]"
+            class="edit-btn"
+            >Edit</a
+          >
+          <a
+            *ngIf="(currentUser$ | async)._id == post.author._id"
+            (click)="deleteHandler()"
+            class="del-btn"
+            >Delete</a
+          >
+          <p
+            *ngIf="(currentUser$ | async)._id != post.author._id && isVoted"
+            class="thanks-for-vote"
+          >
+            Thanks For Voting
+          </p>
+          <a
+            *ngIf="(currentUser$ | async)._id != post.author._id && !isVoted"
+            (click)="votePositiveHandler()"
+            class="vote-up"
+            >UpVote +1</a
+          >
+          <a
+            *ngIf="(currentUser$ | async)._id != post.author._id && !isVoted"
+            (click)="voteNegativeHandler()"
+            class="vote-down"
+            >DownVote -1</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="card_right">
+      <img src="{{ post.imageUrl }}" alt="image" />
+    </div>
+  </div>
+</section>
+
+<section id="votes">
+  <div class="vote-info">
+    <div class="card_left">
+      <div class="card_datails">
+        <h1>Votes</h1>
+        <div class="card_vote">
+          <p class="PV">Total rating of votes: {{ post.rating }}</p>
+        </div>
+        <p *ngIf="post.votes.length > 0" class="disc">
+          People who voted for the post -
+          <span *ngFor="let vote of post.votes"
+            >{{ vote.firstName + " " + vote.lastName
+            }}<span *ngIf="post.votes.indexOf(vote) < post.votes.length - 1"
+              >, </span
+            ><span *ngIf="post.votes.indexOf(vote) == post.votes.length - 1"
+              >.</span
+            ></span
+          >
+        </p>
+        <p *ngIf="post.votes.length == 0" class="disc">
+          People who voted for the post - No one has voted yet.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
