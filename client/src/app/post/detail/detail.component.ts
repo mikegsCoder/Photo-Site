@@ -42,7 +42,13 @@ export class DetailComponent {
     });
   }
 
-  deleteHandler(): void {}
+  deleteHandler(): void {
+    if (window.confirm('Are sure you want to delete this post?')) {
+      this.postService
+        .deletePost(this.post._id)
+        .subscribe(() => this.router.navigate(['/']));
+    }
+  }
 
   votePositiveHandler(): void {}
 
