@@ -56,5 +56,9 @@ export class DetailComponent {
       .subscribe(() => this.ngOnInit());
   }
 
-  voteNegativeHandler(): void {}
+  voteNegativeHandler(): void {
+    this.postService
+      .voteNegative(this.post._id)
+      .subscribe(() => this.ngOnInit());
+  }
 }
