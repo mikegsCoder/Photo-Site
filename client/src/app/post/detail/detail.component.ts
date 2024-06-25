@@ -50,7 +50,11 @@ export class DetailComponent {
     }
   }
 
-  votePositiveHandler(): void {}
+  votePositiveHandler(): void {
+    this.postService
+      .votePositive(this.post._id)
+      .subscribe(() => this.ngOnInit());
+  }
 
   voteNegativeHandler(): void {}
 }
