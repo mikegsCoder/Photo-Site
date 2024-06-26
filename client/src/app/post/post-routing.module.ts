@@ -3,6 +3,7 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CreateComponent } from './create/create.component';
 import { DetailComponent } from './detail/detail.component';
+import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,14 @@ const routes: Routes = [
       title: 'DETAILS',
     },
   },
+  {
+    path: 'edit/:id',
+    component: EditComponent,
+    data: {
+      isLogged: true,
+      title: 'EDIT'
+    }
+  }
 ];
 
 export const PostRoutingModule = RouterModule.forChild(routes);
