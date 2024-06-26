@@ -1,0 +1,101 @@
+<section id="edit-page">
+  <div class="editSection">
+    <div class="info">
+      <h2>Edit your own post!</h2>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="submitHandler()" class="editForm">
+      <fieldset>
+        <h2>Edit Post</h2>
+        <ul class="noBullet">
+          <li>
+            <label for="title">Title:</label>
+            <input [class.input-error]="form.get('title').touched && !!form.get('title').errors" type="text"
+              class="inputFields" id="title" placeholder="Beautiful sunset" name="title" formControlName="title"
+              [(ngModel)]="post.title" />
+            <p *ngIf="form.get('title').touched && form.get('title').errors != null && form.get('title').errors['required']"
+              class="error">
+              Title name is required!
+            </p>
+            <p *ngIf="form.get('title').touched && form.get('title').errors != null && form.get('title').errors['minlength']"
+              class="error">
+              Title name must be at least 6 characters long!
+            </p>
+          </li>
+          <li>
+            <label for="key-word">Keyword:</label>
+            <input [class.input-error]="form.get('keyword').touched && !!form.get('keyword').errors" type="text"
+              class="inputFields" id="keyword" placeholder="Sunset" name="keyword" formControlName="keyword"
+              [(ngModel)]="post.keyword" />
+            <p *ngIf="form.get('keyword').touched && form.get('keyword').errors != null && form.get('keyword').errors['required']"
+              class="error">
+              Keyword is required!
+            </p>
+            <p *ngIf="form.get('keyword').touched && form.get('keyword').errors != null && form.get('keyword').errors['minlength']"
+              class="error">
+              Keyword must be at least 4 characters long!
+            </p>
+          </li>
+          <li>
+            <label for="location">Location:</label>
+            <input [class.input-error]="form.get('location').touched && !!form.get('location').errors" type="text"
+              class="inputFields" id="location" placeholder="Bulgaria" name="location" formControlName="location"
+              [(ngModel)]="post.location" />
+            <p *ngIf="form.get('location').touched && form.get('location').errors != null && form.get('location').errors['required']"
+              class="error">
+              Location is required!
+            </p>
+            <p *ngIf="form.get('location').touched && form.get('location').errors != null && form.get('location').errors['maxlength']"
+              class="error">
+              Location must be at most 15 characters long!
+            </p>
+          </li>
+          <li>
+            <label for="date">Date of creation:</label>
+            <input [class.input-error]="form.get('date').touched && !!form.get('date').errors" type="text"
+              class="inputFields" id="date" placeholder="18.07.2023" name="date" formControlName="date"
+              [(ngModel)]="post.date" />
+            <p *ngIf="form.get('date').touched && form.get('date').errors != null && form.get('date').errors['required']"
+              class="error">
+              Date is required!
+            </p>
+            <p *ngIf="form.get('date').touched && form.get('date').errors != null && (form.get('date').errors['minlength'] || form.get('date').errors['maxlength'])"
+              class="error">
+              Date must be exactly 10 characters long!
+            </p>
+          </li>
+          <li>
+            <label for="image">Wildlife image:</label>
+            <input [class.input-error]="form.get('imageUrl').touched && !!form.get('imageUrl').errors" type="text"
+              class="inputFields" id="image" placeholder="http:/..." name="imageUrl" formControlName="imageUrl"
+              [(ngModel)]="post.imageUrl" />
+            <p *ngIf="form.get('imageUrl').touched && form.get('imageUrl').errors != null && form.get('imageUrl').errors['required']"
+              class="error">
+              Image is required!
+            </p>
+            <p *ngIf="form.get('imageUrl').touched && form.get('imageUrl').errors != null && form.get('imageUrl').errors['imageValidator']"
+              class="error">
+              Please enter a valid image URL!
+            </p>
+          </li>
+          <li>
+            <label for="description">Description:</label>
+            <textarea [class.input-error]="form.get('description').touched && !!form.get('description').errors"
+              id="description" class="inputFields" name="description" placeholder="Beautiful sunset captured..."
+              formControlName="description" [(ngModel)]="post.description"></textarea>
+            <p *ngIf="form.get('description').touched && form.get('description').errors != null && form.get('description').errors['required']"
+              class="error">
+              Description is required!
+            </p>
+            <p *ngIf="form.get('description').touched && form.get('description').errors != null && form.get('description').errors['minlength']"
+              class="error">
+              Description must be at least 8 characters long!
+            </p>
+          </li>
+          <li id="center-btn">
+            <button [disabled]="isLoading || form.invalid" id="edit-btn">Edit</button>
+          </li>
+        </ul>
+      </fieldset>
+    </form>
+  </div>
+</section>

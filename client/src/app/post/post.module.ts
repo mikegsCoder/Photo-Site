@@ -8,13 +8,15 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { CreateComponent } from './create/create.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DetailComponent } from './detail/detail.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
     CatalogComponent,
     ProfileComponent,
     CreateComponent,
-    DetailComponent
+    DetailComponent,
+    EditComponent
   ],
   imports: [
     CommonModule, 
