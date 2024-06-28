@@ -39,5 +39,20 @@ export class EditComponent {
     });
   }
 
-  submitHandler(): void {}
+  submitHandler(): void {
+    const data = this.form.value;
+    this.isLoading = true;
+
+    this.postService.updatePost(this.post._id, data).subscribe({
+      next: () => {
+        this.isLoading = false;
+        this.router.navigate([`/post/detail/${this.post._id}`]);
+      },
+      error: (err) => {
+        this.isLoading = false;
+        console.error(err);
+        alert(err.error.message);
+      }
+    });
+  }
 }
