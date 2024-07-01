@@ -8,7 +8,6 @@
     />
 
     <ul class="menu">
-      <!-- <li><a routerLink="/home">Home</a></li> -->
       <li><a routerLink="/post/catalog">All Posts</a></li>
       <!-- Logged users -->
       <li *ngIf="isLogged$ | async">
@@ -22,10 +21,6 @@
       <li *ngIf="isLogged$ | async">
         <a routerLink="/user/profile">Profile</a>
       </li>
-      <!-- <li *ngIf="isLogged$ | async"> -->
-      <!-- <a (click)="logoutHandler()">Logout</a> -->
-      <!-- <img *ngIf="isLogged$ | async" id="logout-icon" (click)="logoutHandler()" src="../../../assets/img/common/logout.png" alt="logout"> -->
-      <!-- </li> -->
       <!-- Guest users -->
       <li *ngIf="!(isLogged$ | async)">
         <a routerLink="/user/register">Register</a>

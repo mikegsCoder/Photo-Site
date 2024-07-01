@@ -24,22 +24,16 @@ export class TimeDiffPipe implements PipeTransform {
 
     if (elapsed < msPerMinute) {
       result = rtf.format(-Math.floor(elapsed / 1000), 'seconds');
-      // return rtf.format(-Math.floor(elapsed / 1000), 'seconds');
     } else if (elapsed < msPerHour) {
       result = rtf.format(-Math.floor(elapsed / msPerMinute), 'minutes');
-      // return rtf.format(-Math.floor(elapsed / msPerMinute), 'minutes');
     } else if (elapsed < msPerDay) {
       result = rtf.format(-Math.floor(elapsed / msPerHour), 'hours');
-      // return rtf.format(-Math.floor(elapsed / msPerHour), 'hours');
     } else if (elapsed < msPerMonth) {
       result = rtf.format(-Math.floor(elapsed / msPerDay), 'days');
-      // return rtf.format(-Math.floor(elapsed / msPerDay), 'days');
     } else if (elapsed < msPerYear) {
       result = rtf.format(-Math.floor(elapsed / msPerMonth), 'months');
-      // return rtf.format(-Math.floor(elapsed / msPerMonth), 'months');
     } else {
       result = rtf.format(-Math.floor(elapsed / msPerYear), 'years');
-      // return rtf.format(-Math.floor(elapsed / msPerYear), 'years');
     }
 
     return result.slice(0, result.length - 3);

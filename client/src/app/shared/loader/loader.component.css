@@ -2,7 +2,6 @@
   width: 200px;
   height: 200px;
   position: absolute;
-  /* bottom: 20vh;  */
   top: 0vh;
   left: calc(50vw - 200px);
   z-index: 20;
@@ -18,7 +17,6 @@
   display: block;
   position: absolute;
   top: 19px;
-  /* left: 231px; */
   left: 190px;
   width: 15px;
   height: 90px;

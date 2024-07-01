@@ -1,14 +1,17 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PostService } from './post.service';
-import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PostRoutingModule } from './post-routing.module';
+
+import { PostService } from './post.service';
+
 import { CatalogComponent } from './catalog/catalog.component';
 import { CreateComponent } from './create/create.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DetailComponent } from './detail/detail.component';
 import { EditComponent } from './edit/edit.component';
+
+import { SharedModule } from '../shared/shared.module';
+import { PostRoutingModule } from './post-routing.module';
 
 @NgModule({
   declarations: [

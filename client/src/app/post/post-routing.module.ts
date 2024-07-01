@@ -10,7 +10,6 @@ const routes: Routes = [
     path: 'catalog',
     component: CatalogComponent,
     data: {
-      // isLogged: true,
       title: 'ALL POSTS',
     },
   },
@@ -34,7 +33,6 @@ const routes: Routes = [
     path: 'detail/:id',
     component: DetailComponent,
     data: {
-      // isLogged: true,
       title: 'DETAILS',
     },
   },
