@@ -28,7 +28,7 @@
    ```sh
    npm install
    ```
-47. Start the Angular project
+7. Start the Angular project
    ```sh
    ng serve
    ```
