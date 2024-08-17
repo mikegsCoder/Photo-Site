@@ -1,6 +1,6 @@
 # Photo Site
 
-:dart:  My project for the Angular course. This is a Web application where you can post you best outdoor photos and browse such photos posted by other users. Each post has title, keyword, location, date of creation, image URL and description.
+:dart:  My project for the Angular course. This is a Web application where you can post your best outdoor photos and browse such photos posted by other users. Each post has title, keyword, location, date of creation, image URL and description.
 
 ## :arrow_forward: Getting Started:
 
