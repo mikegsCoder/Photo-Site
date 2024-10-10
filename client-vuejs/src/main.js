@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
+import { useUserStore } from '../src/stores/userStore.js';
 import PrimeVue from 'primevue/config';
 import App from './App.vue';
 import ConfirmationService from 'primevue/confirmationservice';
@@ -13,4 +14,5 @@ app.use(pinia);
 app.use(PrimeVue);
 app.use(ConfirmationService);
 
+const userStore = useUserStore();
 app.mount('#app');
