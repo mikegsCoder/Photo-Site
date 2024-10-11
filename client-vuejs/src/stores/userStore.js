@@ -11,9 +11,18 @@ export const useUserStore = defineStore('user', () => {
     sessionStorage.setItem('user-profile', JSON.stringify(profileData));
   }
 
+  function getPersistedProfile() {
+    const persisted = sessionStorage.getItem('user-profile');
+    if (!persisted)
+      return;
+    profile.value = JSON.parse(persisted);
+    isAuthenticated.value = true;
+  }
+
   return {
     isAuthenticated,
     profile,
     setProfile,
+    getPersistedProfile,
   };
 });

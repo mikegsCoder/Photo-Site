@@ -15,4 +15,5 @@ app.use(PrimeVue);
 app.use(ConfirmationService);
 
 const userStore = useUserStore();
+userStore.getPersistedProfile();
 app.mount('#app');
