@@ -1,0 +1,25 @@
+<script setup>
+</script>
+
+<template>
+<section id="home">
+  <div class="home-container">
+    <div class="short-info">
+      <h1>The best of the outdoor photography.</h1>
+      <h2>Share your best outdoor photos with our community.</h2>
+    </div>
+  </div>
+</section>
+
+<section id="home-page">
+  <div class="offers">
+    <div class="col container"><img src="../assets/img/common/photo1.jpg" alt="photo_1"></div>
+    <div class="col container"><img src="../assets/img/common/photo2.jpg" alt="photo_2"></div>
+    <div class="col container"><img src="../assets/img/common/photo3.jpg" alt="photo_3"></div>
+    <div class="col container"><img src="../assets/img/common/photo4.jpg" alt="photo_4"></div>
+  </div>
+</section>
+</template>
+
+<style scoped>
+</style>
