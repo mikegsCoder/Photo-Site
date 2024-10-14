@@ -1,6 +1,10 @@
 <script setup>
 import { ref } from 'vue';
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
+import { useUserStore } from '../stores/userStore';
+
+const userStore = useUserStore();
+const router = useRouter();
 
 const items = ref([
   {
@@ -14,6 +18,12 @@ const items = ref([
 <template>
 <header>
   <nav>
+    <img 
+				id="logo-img" 
+				src="../assets/img/common/logo.png" 
+				alt="logo" 
+				@click="router.push('/')"
+			>
     <ul v-for="item in items.filter(i => i.visible())" class="menu">
       <li>
         <RouterLink v-slot="{ href, navigate }" :to="item.route" custom>
