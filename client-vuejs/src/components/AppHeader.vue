@@ -13,6 +13,11 @@ const items = ref([
     visible: () => true,
   },
 ]);
+
+const logoutHandler = () => {
+  userStore.userStoreLogout();
+  router.push('/');
+}
 </script>
 
 <template>
@@ -35,6 +40,13 @@ const items = ref([
         </RouterLink>
       </li>
     </ul>
+    <img 
+        v-if="userStore.isAuthenticated"
+        @click="logoutHandler"
+        id="logout-icon" 
+        src="../assets/img/common/logout.png" 
+        alt="logout"
+      >
   </nav>
 </header>
 </template>
