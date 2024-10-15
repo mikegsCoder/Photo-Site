@@ -11,6 +11,18 @@ async function loginUser(userData) {
   }
 }
 
+async function registerUser(userData) {
+  try {
+    const res = await axiosInstance.post('users/register', userData);
+    return res.data;
+  }
+  catch (error) {
+    console.error(error.response.data);
+    return error.response.data;
+  }
+}
+
 export { 
   loginUser,
+  registerUser,
 };
