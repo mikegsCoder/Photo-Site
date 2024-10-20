@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import { useUserStore } from '../stores/userStore';
 
 const Home = () => import('../views/Home.vue');
 const Catalog = () => import('../views/Post/Catalog.vue');
