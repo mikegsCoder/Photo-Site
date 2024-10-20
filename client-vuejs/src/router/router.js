@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 const Home = () => import('../views/Home.vue');
 const Catalog = () => import('../views/Post/Catalog.vue');
+const NotFound = () => import('../components/NotFound.vue');
 
 const Register = () => import('../views/User/Register.vue');
 const Login = () => import('../views/User/Login.vue');
@@ -14,6 +15,7 @@ const routes = [
     const userStore = useUserStore();
     return userStore.isAuthenticated ? { path: '/profile' } : true;
   } },
+  { path: '/:pathMatch(.*)*', component: NotFound }
 ];
 
 const router = createRouter({
