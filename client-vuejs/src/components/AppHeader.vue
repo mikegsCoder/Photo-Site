@@ -17,6 +17,11 @@ const items = ref([
 		route: '/register',
 		visible: () => !userStore.isAuthenticated,
 	},
+  {
+		label: 'Login',
+		route: '/login',
+		visible: () => !userStore.isAuthenticated,
+	},
 ]);
 
 const logoutHandler = () => {
