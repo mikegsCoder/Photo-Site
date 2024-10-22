@@ -8,6 +8,8 @@ const NotFound = () => import('../components/NotFound.vue');
 const Register = () => import('../views/User/Register.vue');
 const Login = () => import('../views/User/Login.vue');
 
+const Create = () => import('../views/Post/Create.vue');
+
 const routes = [
   { path: '/', component: Home },
   { path: '/catalog', component: Catalog },
@@ -15,6 +17,10 @@ const routes = [
   { path: '/login', component: Login, beforeEnter: () => {
     const userStore = useUserStore();
     return userStore.isAuthenticated ? { path: '/profile' } : true;
+  } },
+  { path: '/create', component: Create, beforeEnter: () => {
+    const userStore = useUserStore();
+    return userStore.isAuthenticated ? true : { path: '/login' };
   } },
   { path: '/:pathMatch(.*)*', component: NotFound }
 ];
