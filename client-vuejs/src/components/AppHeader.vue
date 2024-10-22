@@ -13,6 +13,11 @@ const items = ref([
     visible: () => true,
   },
   {
+		label: 'Create Post',
+		route: '/create',
+		visible: () => userStore.isAuthenticated,
+	},
+  {
 		label: 'Register',
 		route: '/register',
 		visible: () => !userStore.isAuthenticated,
