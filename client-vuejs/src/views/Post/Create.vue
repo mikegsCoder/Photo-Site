@@ -192,4 +192,25 @@ async function onSubmit() {
 </template>
 
 <style scoped>
+.createForm fieldset {
+  border: none;
+}
+
+.info>h2 {
+  padding-top: 13em;
+  font-weight: 300;
+  font-size: 23px;
+}
+
+input:not(.input-error), textarea {
+  border-left: 0.3em solid green;
+}
+
+fieldset>h2 {
+  margin: 1rem;
+}
+
+li ::marker{
+  color: transparent;
+}
 </style>
