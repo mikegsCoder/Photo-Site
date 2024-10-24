@@ -13,6 +13,17 @@ async function getAllPosts() {
   }
 }
 
+async function getPostById(id) {
+  try {
+    const res = await axiosInstance.get(`posts/${id}`);
+    return res.data;
+  }
+  catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
 async function createPost(postData) {
   try {
     const res = await axiosInstance.post(`posts/`, postData);
@@ -26,5 +37,6 @@ async function createPost(postData) {
 
 export { 
 	getAllPosts,
+  getPostById,
   createPost,
 };
