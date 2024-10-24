@@ -13,6 +13,18 @@ async function getAllPosts() {
   }
 }
 
+async function createPost(postData) {
+  try {
+    const res = await axiosInstance.post(`posts/`, postData);
+    return res.data;
+  }
+  catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
 export { 
-	getAllPosts, 
+	getAllPosts,
+  createPost,
 };
