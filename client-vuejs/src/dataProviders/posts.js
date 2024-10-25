@@ -60,10 +60,22 @@ async function editPost(postId, postData) {
   }
 }
 
+async function votePositive(postId) {
+  try {
+    const res = await axiosInstance.post(`posts/votep/${postId}`, {});
+    return res.data;
+  }
+  catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
 export { 
 	getAllPosts,
   getProfilePosts,
   getPostById,
   createPost,
   editPost,
+  votePositive,
 };
