@@ -71,6 +71,17 @@ async function votePositive(postId) {
   }
 }
 
+async function voteNegative(postId) {
+  try {
+    const res = await axiosInstance.post(`posts/voten/${postId}`, {});
+    return res.data;
+  }
+  catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
 export { 
 	getAllPosts,
   getProfilePosts,
@@ -78,4 +89,5 @@ export {
   createPost,
   editPost,
   votePositive,
+  voteNegative
 };
