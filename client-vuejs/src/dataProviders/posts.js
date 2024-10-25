@@ -49,9 +49,21 @@ async function createPost(postData) {
   }
 }
 
+async function editPost(postId, postData) {
+  try {
+    const res = await axiosInstance.put(`posts/${postId}`, postData);
+    return res.data;
+  }
+  catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
 export { 
 	getAllPosts,
   getProfilePosts,
   getPostById,
   createPost,
+  editPost,
 };
