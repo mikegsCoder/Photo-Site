@@ -82,6 +82,17 @@ async function voteNegative(postId) {
   }
 }
 
+async function deletePost(postId) {
+  try {
+    const res = await axiosInstance.delete(`posts/${postId}`);
+    return res.data;
+  }
+  catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
 export { 
 	getAllPosts,
   getProfilePosts,
@@ -89,5 +100,6 @@ export {
   createPost,
   editPost,
   votePositive,
-  voteNegative
+  voteNegative,
+  deletePost
 };
