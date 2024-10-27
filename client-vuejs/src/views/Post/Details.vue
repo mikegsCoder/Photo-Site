@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useRouter, useRoute, RouterLink } from 'vue-router';
+import { getPostById } from '../../dataProviders/posts';
 import { useConfirm } from "primevue/useconfirm";
 import { useUserStore } from '../../stores/userStore';
 
@@ -24,7 +25,15 @@ onMounted(async () => {
   await loadData();
 });
 
-async function loadData() {}
+async function loadData() {
+  post.value = await getPostById(route.params._id);
+  author.value = post.value.author;
+	votes.value = post.value.votes;
+  isLoading.value = false;
+  currentUser.value = userStore.profile;
+  isVoted.value = votes.value.find(u => u._id == currentUser.value?._id) != null;
+  isLoading.value = false;
+}
 
 function deleteHandler(event) {}
 
