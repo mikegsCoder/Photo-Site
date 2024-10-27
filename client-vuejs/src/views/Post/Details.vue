@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useRouter, useRoute, RouterLink } from 'vue-router';
-import { getPostById } from '../../dataProviders/posts';
+import { getPostById, deletePost } from '../../dataProviders/posts';
 import { useConfirm } from "primevue/useconfirm";
 import { useUserStore } from '../../stores/userStore';
 
@@ -35,7 +35,26 @@ async function loadData() {
   isLoading.value = false;
 }
 
-function deleteHandler(event) {}
+function deleteHandler(event) {
+  confirm.require({
+    target: event.currentTarget,
+    message: 'Are you sure you want to delete this post?',
+    header: 'Confirmation',
+    onShow: () => {
+        isVisible.value = true;
+    },
+    onHide: () => {
+        isVisible.value = false;
+    },
+    accept: async () => {
+      isLoading.value = true;
+      await deletePost(post.value._id);
+      router.push('/');
+    },
+    reject: () => {
+    }
+  });
+}
 
 async function votePositiveHandler() {}
 
