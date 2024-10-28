@@ -62,7 +62,11 @@ async function votePositiveHandler() {
   await loadData();
 }
 
-async function voteNegativeHandler() { }
+async function voteNegativeHandler() {
+  isLoading.value = true;
+  await voteNegative(post.value._id);
+  await loadData();
+}
 </script>
 
 <template>
