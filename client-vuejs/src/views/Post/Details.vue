@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useRouter, useRoute, RouterLink } from 'vue-router';
-import { getPostById, deletePost, votePositive } from '../../dataProviders/posts';
+import { getPostById, deletePost, votePositive, voteNegative } from '../../dataProviders/posts';
 import { useConfirm } from "primevue/useconfirm";
 import { useUserStore } from '../../stores/userStore';
 
