@@ -9,6 +9,7 @@ const Register = () => import('../views/User/Register.vue');
 const Login = () => import('../views/User/Login.vue');
 
 const Create = () => import('../views/Post/Create.vue');
+const Edit = () => import('../views/Post/Edit.vue');
 const Details = () => import('../views/Post/Details.vue');
 
 const routes = [
@@ -21,6 +22,10 @@ const routes = [
   } },
   { path: '/details/:_id', component: Details},
   { path: '/create', component: Create, beforeEnter: () => {
+    const userStore = useUserStore();
+    return userStore.isAuthenticated ? true : { path: '/login' };
+  } },
+  { path: '/edit/:_id', component: Edit, beforeEnter: () => {
     const userStore = useUserStore();
     return userStore.isAuthenticated ? true : { path: '/login' };
   } },
