@@ -3,8 +3,8 @@ import { computed, reactive, onMounted, ref } from 'vue';
 import useVuelidate from '@vuelidate/core';
 import { helpers, minLength, maxLength, required, url } from '@vuelidate/validators';
 import { useRouter, useRoute, RouterLink } from 'vue-router';
+import { getPostById, editPost } from '../../dataProviders/posts';
 import FormItem from '../../components/FormItem.vue';
-import { getPostById } from '../../dataProviders/posts';
 import Loader from '../../components/Loader.vue';
 
 const post = ref({
@@ -61,7 +61,18 @@ const rules = computed(() => ({
 
 const v$ = useVuelidate(rules, post);
 
-async function onSubmit() {};
+async function onSubmit() {
+  const isValid = await v$.value.$validate();
+  // console.log(`Is form valid: ${isValid}`)
+  
+  if (isValid) {
+    isLoading.value = true;
+    await editPost(post.value._id, post.value);
+
+    router.push(`/details/${post.value._id}`);
+    isLoading.value = false;
+  }
+};
 </script>
 
 <template>
