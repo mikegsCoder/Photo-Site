@@ -1,6 +1,7 @@
 <script setup>
 import { computed, reactive, onMounted, ref } from 'vue';
 import useVuelidate from '@vuelidate/core';
+import { helpers, minLength, maxLength, required, url } from '@vuelidate/validators';
 import { useRouter, useRoute, RouterLink } from 'vue-router';
 import FormItem from '../../components/FormItem.vue';
 import { getPostById } from '../../dataProviders/posts';
@@ -30,7 +31,33 @@ onMounted(async () => {
   isLoading.value = false;
 });
 
-const rules = computed(() => ({}));
+const rules = computed(() => ({
+  title: {
+    required: helpers.withMessage('Title is required.', required),
+    minLength: helpers.withMessage('Title must be at least 6 characters long.', minLength(6)),
+  },
+  keyword: {
+    required: helpers.withMessage('Keyword is required.', required),
+    minLength: helpers.withMessage('Keyword must be at least 4 characters long.', minLength(4)),
+  },
+  location: {
+    required: helpers.withMessage('Location is required.', required),
+    maxLength: helpers.withMessage('Location must be at most 15 characters long.', maxLength(15))
+  },
+  date: {
+    required: helpers.withMessage('Date is required.', required),
+    minLength: helpers.withMessage('Date must be exactly 10 characters long.', minLength(10)),
+    maxLength: helpers.withMessage('Date must be exactly 10 characters long.', maxLength(10)),
+  },
+  imageUrl: {
+    required: helpers.withMessage('Image is required.', required),
+    url: helpers.withMessage('Please enter a valid image URL.', url)
+  },
+  description: {
+    required: helpers.withMessage('Description is required.', required),
+    minLength: helpers.withMessage('Description must be at least 8 characters long.', minLength(8)),
+  },
+}));
 
 const v$ = useVuelidate(rules, post);
 
