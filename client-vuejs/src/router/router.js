@@ -11,6 +11,7 @@ const Login = () => import('../views/User/Login.vue');
 const Create = () => import('../views/Post/Create.vue');
 const Edit = () => import('../views/Post/Edit.vue');
 const Details = () => import('../views/Post/Details.vue');
+const ProfileCatalog = () => import('../views/Post/Profile.vue');
 
 const routes = [
   { path: '/', component: Home },
@@ -20,6 +21,7 @@ const routes = [
     const userStore = useUserStore();
     return userStore.isAuthenticated ? { path: '/profile' } : true;
   } },
+  { path: '/profile-catalog', component: ProfileCatalog, beforeEnter: validateUser },
   { path: '/details/:_id', component: Details},
   { path: '/create', component: Create, beforeEnter: () => {
     const userStore = useUserStore();
