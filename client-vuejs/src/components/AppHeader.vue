@@ -18,6 +18,11 @@ const items = ref([
 		visible: () => userStore.isAuthenticated,
 	},
   {
+		label: 'Posts of user',
+		route: '/profile-catalog',
+		visible: () => userStore.isAuthenticated,
+	},
+  {
 		label: 'Register',
 		route: '/register',
 		visible: () => !userStore.isAuthenticated,
