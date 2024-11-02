@@ -13,6 +13,11 @@ const Edit = () => import('../views/Post/Edit.vue');
 const Details = () => import('../views/Post/Details.vue');
 const ProfileCatalog = () => import('../views/Post/Profile.vue');
 
+function validateUser() {
+  const userStore = useUserStore();
+  return userStore.isAuthenticated ? userStore.isAuthenticated : { path: '/login' };
+};
+
 const routes = [
   { path: '/', component: Home },
   { path: '/catalog', component: Catalog },
