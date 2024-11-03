@@ -7,6 +7,7 @@ const NotFound = () => import('../components/NotFound.vue');
 
 const Register = () => import('../views/User/Register.vue');
 const Login = () => import('../views/User/Login.vue');
+const ProfileInfo = () => import('../views/User/Profile.vue');
 
 const Create = () => import('../views/Post/Create.vue');
 const Edit = () => import('../views/Post/Edit.vue');
@@ -26,6 +27,7 @@ const routes = [
     const userStore = useUserStore();
     return userStore.isAuthenticated ? { path: '/profile' } : true;
   } },
+  { path: '/profile-info', component: ProfileInfo, beforeEnter: validateUser },
   { path: '/profile-catalog', component: ProfileCatalog, beforeEnter: validateUser },
   { path: '/details/:_id', component: Details},
   { path: '/create', component: Create, beforeEnter: () => {
