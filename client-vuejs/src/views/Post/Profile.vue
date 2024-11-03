@@ -11,8 +11,6 @@ onMounted(async () => {
   posts.value = await getProfilePosts();
   isLoading.value = false;
 });
-
-function detailsClickHandler(e) {}
 </script>
 
 <template>
@@ -32,7 +30,6 @@ function detailsClickHandler(e) {}
       v-else v-for="post in posts" 
       :key="`post-${post._id}`" 
       :post="post"
-      @on-details-dlick="detailsClickHandler" 
     />
   </div>
 </section>
