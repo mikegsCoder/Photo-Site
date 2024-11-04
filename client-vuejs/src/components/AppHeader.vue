@@ -23,6 +23,11 @@ const items = ref([
 		visible: () => userStore.isAuthenticated,
 	},
   {
+		label: 'Profile',
+		route: '/profile-info',
+		visible: () => userStore.isAuthenticated,
+	},
+  {
 		label: 'Register',
 		route: '/register',
 		visible: () => !userStore.isAuthenticated,
