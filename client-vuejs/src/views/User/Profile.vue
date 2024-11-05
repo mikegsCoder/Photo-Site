@@ -15,7 +15,35 @@ onMounted(async () => {
 });
 
 const timePeriod = (value) => {
-  return '';
+  let result = '';
+
+  const msPerMinute = 60 * 1000;
+  const msPerHour = msPerMinute * 60;
+  const msPerDay = msPerHour * 24;
+  const msPerMonth = msPerDay * 30;
+  const msPerYear = msPerMonth * 365;
+
+  const valueDate = new Date(value);
+  const current = new Date();
+  const elapsed = +current - +valueDate;
+
+  const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+
+  if (elapsed < msPerMinute) {
+      result = rtf.format(-Math.floor(elapsed / 1000), 'seconds');
+  } else if (elapsed < msPerHour) {
+      result = rtf.format(-Math.floor(elapsed / msPerMinute), 'minutes');
+  }else if (elapsed < msPerDay) {
+      result = rtf.format(-Math.floor(elapsed / msPerHour), 'hours');
+  }else if (elapsed < msPerMonth) {
+      result = rtf.format(-Math.floor(elapsed / msPerDay), 'days');
+  } else if (elapsed < msPerYear) {
+      result = rtf.format(-Math.floor(elapsed / msPerMonth), 'months');
+  } else{
+      result = rtf.format(-Math.floor(elapsed / msPerYear), 'years');
+  }
+
+  return result.slice(0, result.length - 3);
 }
 </script>
 
