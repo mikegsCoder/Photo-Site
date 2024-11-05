@@ -77,4 +77,54 @@ const timePeriod = (value) => {
 </template>
 
 <style scoped>
+.profile {
+  width: 50vw;
+  max-width: 500px;
+  margin: 2em auto 1rem;
+  padding: .5em;
+  border: .3em solid #313131;
+  border-radius: .5rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  font-size: 1.4rem;
+  background: #4D6D72;
+  box-shadow: 0 0 1em 0 #000;
+  text-align: center;
+}
+
+.profile h3 {
+  text-decoration: underline;
+}
+
+.profile img {
+  width: 7em;
+  height: 7em;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex p:first-child {
+  width: 35%;
+  text-align: right;
+  margin: .5em;
+}
+
+.flex p:last-child {
+  width: 55%;
+  text-align: left;
+  margin: .5em;
+  font-weight: bold;
+}
+
+.flex>div {
+  width: 55%;
+  text-align: left;
+  margin: .5em;
+}
 </style>
