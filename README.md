@@ -1,6 +1,6 @@
 # Photo Site
 
-:dart:  My project for the Angular course. This is a Web application where you can post your best outdoor photos and browse such photos posted by other users. Each post has title, keyword, location, date of creation, image URL and description.
+:dart:  My project for the Angular and VueJS courses. This is a Web application where you can post your best outdoor photos and browse such photos posted by other users. Each post has title, keyword, location, date of creation, image URL and description.
 
 ## :arrow_forward: Getting Started:
 
@@ -8,31 +8,49 @@
    ```sh
    git clone https://github.com/mikegsCoder/Photo-Site.git
    ```
-2. Open Visual Studio Code in the "server" folder and open the Terminal
+
+## 💡 Starting the Server:
+
+1. Open Visual Studio Code in the "server" folder and open the Terminal
    ```sh
    View -> Terminal
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Start the server
+3. Start the server
    ```sh
    node index.js
 
-5. Open Visual Studio Code in the "client" folder and open the Terminal
+## 💡 Starting the Angular client:
+
+1. Open Visual Studio Code in the "client-angular" folder and open the Terminal
    ```sh
    View -> Terminal
    ```
-6. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-7. Start the Angular project
+3. Start the Angular project
    ```sh
    ng serve
    ```
+## 💡 Starting the VueJS client:
 
+1. Open Visual Studio Code in the "client-vuejs" folder and open the Terminal
+   ```sh
+   View -> Terminal
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Start the VueJS project
+   ```sh
+   npm run dev
+   ```
 ## :information_source: Application Functionality:
 
 - Guest visitor can: 
@@ -56,8 +74,9 @@
 
 ## :hammer_and_wrench: Technologies and Tools used:
 
-- Angular
-- TypeScript
+- Angular and TypeScript for the Angular project
+- VueJS and JavaScript for the VueJS project
+- ExpressJS
 - Mongo DB
 - HTML 5
 - CSS
