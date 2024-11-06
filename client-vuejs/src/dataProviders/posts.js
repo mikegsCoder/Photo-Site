@@ -16,7 +16,6 @@ async function getAllPosts() {
 async function getProfilePosts() {
   try {
     const res = await axiosInstance.get('/posts/user');
-    // console.log(res.data);
     return res.data;
   }
   catch (error) {

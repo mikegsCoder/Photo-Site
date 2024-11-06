@@ -85,7 +85,6 @@ async function voteNegativeHandler() {
         </div>
         <p class="disc">Description: {{ post.description }}</p>
         <div v-if="currentUser" class="social-btn">
-          <!-- <div class="social-btn"> -->
           <RouterLink v-if="currentUser._id == author._id" :to="{ path: `/edit/${post._id}` }" class="edit-btn">
             Edit
           </RouterLink>
@@ -206,7 +205,6 @@ async function voteNegativeHandler() {
   background: rgba(116, 153, 226, 0.89);
   -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
-  /* -webkit-transition: 300ms ease-in-out; */
 }
 
 .disc {
@@ -226,7 +224,6 @@ async function voteNegativeHandler() {
 .vote-down,
 .thanks-for-vote {
   color: #fff;
-  /* border: none; */
   padding: 14px;
   outline: none;
   font-size: 18px;
@@ -437,7 +434,6 @@ span {
   background: #9B2335;
   -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
-  /* -webkit-transition: 300ms ease-in-out; */
   font-size: 18px;
 }
 
@@ -446,7 +442,6 @@ span {
   -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
   font-size: 18.5px;
-  /* -webkit-transition: 300ms ease-in-out; */
 }
 
 .PV,
@@ -469,10 +464,6 @@ span {
   }
 }
 
-/* .del-btn:hover {
-    cursor: pointer;
-} */
-
 .edit-btn,
 .del-btn,
 .vote-up,
@@ -488,9 +479,4 @@ span {
   cursor: pointer;
   border: 2px solid red;
 }
-
-/* div.p-confirm-popup-content {
-  font-size: 1.5 rem !important;
-
-} */
 </style>

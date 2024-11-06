@@ -17,7 +17,6 @@ const post = {
 };
 
 const formData = reactive({ ...post });
-
 const router = useRouter();
 const isLoading = ref(false);
 
@@ -53,12 +52,10 @@ const v$ = useVuelidate(rules, formData);
 
 async function onSubmit() {
   const isValid = await v$.value.$validate();
-  // console.log(`Is form valid: ${isValid}`)
   
   if (isValid) {
     isLoading.value = true;
     await createPost(formData);
-
     router.push('/');
     isLoading.value = false;
   }

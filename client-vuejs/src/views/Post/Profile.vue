@@ -139,7 +139,6 @@ onMounted(async () => {
   margin-top: -1em;
   padding: 2px 10px;
   text-transform: uppercase;
-  /* cursor: pointer; */
 }
 
 .tag-teal {

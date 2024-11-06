@@ -1,5 +1,4 @@
 <script setup>
-import { computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 const props = defineProps({
@@ -24,13 +23,7 @@ const props = defineProps({
 });
 
 const router = useRouter();
-
 const emit = defineEmits(['onDetailsClick']);
-
-onMounted(async () => {
-  // console.log('Post card mounted!');
-  // console.log(props.post);
-});
 
 const clickHandler = () => {
   router.push(`/details/${props.post._id}`)
@@ -169,7 +162,6 @@ const clickHandler = () => {
   margin-top: -1em;
   padding: 2px 10px;
   text-transform: uppercase;
-  /* cursor: pointer; */
 }
 
 .tag-teal {

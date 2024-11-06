@@ -18,7 +18,6 @@ const user = {
 };
 
 const formData = reactive({ ...user });
-
 const router = useRouter();
 const userStore = useUserStore();
 const isLoading = ref(false);
@@ -50,7 +49,6 @@ const v$ = useVuelidate(rules, formData);
 
 async function onSubmit() {
   const isValid = await v$.value.$validate();
-  // console.log(`Is form valid: ${isValid}`)
   
   if (isValid) {
     data.value = {};
@@ -63,10 +61,7 @@ async function onSubmit() {
       userStore.setProfile(data.value);
       router.push('/');
     }
-    // if (userData) {
-    //   userStore.setProfile(userData);
-    //   router.push('/');
-    // }
+    
     isLoading.value = false;
   }
 };

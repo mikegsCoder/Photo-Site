@@ -1,5 +1,5 @@
 <script setup>
-import { computed, reactive, onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import useVuelidate from '@vuelidate/core';
 import { helpers, minLength, maxLength, required, url } from '@vuelidate/validators';
 import { useRouter, useRoute, RouterLink } from 'vue-router';
@@ -63,7 +63,6 @@ const v$ = useVuelidate(rules, post);
 
 async function onSubmit() {
   const isValid = await v$.value.$validate();
-  // console.log(`Is form valid: ${isValid}`)
   
   if (isValid) {
     isLoading.value = true;
