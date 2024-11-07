@@ -1,6 +1,6 @@
 # Photo Site
 
-:dart:  My project for the Angular and VueJS courses. This is a Web application where you can post your best outdoor photos and browse such photos posted by other users. Each post has title, keyword, location, date of creation, image URL and description.
+:dart:  My projects for the Angular and VueJS courses. They are a Web applications where you can post your best outdoor photos and browse such photos posted by other users. Each post has title, keyword, location, date of creation, image URL and description.
 
 ## :arrow_forward: Getting Started:
 
@@ -9,7 +9,7 @@
    git clone https://github.com/mikegsCoder/Photo-Site.git
    ```
 
-## 💡 Starting the Server:
+## :small_blue_diamond: Starting the Server:
 
 1. Open Visual Studio Code in the "server" folder and open the Terminal
    ```sh
@@ -23,7 +23,7 @@
    ```sh
    node index.js
 
-## 💡 Starting the Angular client:
+## :small_blue_diamond: Starting the Angular client:
 
 1. Open Visual Studio Code in the "client-angular" folder and open the Terminal
    ```sh
@@ -37,7 +37,7 @@
    ```sh
    ng serve
    ```
-## 💡 Starting the VueJS client:
+## :small_blue_diamond: Starting the VueJS client:
 
 1. Open Visual Studio Code in the "client-vuejs" folder and open the Terminal
    ```sh
